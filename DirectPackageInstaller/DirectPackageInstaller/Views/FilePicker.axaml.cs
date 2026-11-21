@@ -89,7 +89,7 @@ public partial class FilePicker : UserControl
         try
         {
             string[] SubDirs = Directory.GetDirectories(Path);
-            string[] Files = Directory.GetFiles(Path, "*", SearchOption.TopDirectoryOnly);
+            string[] Files = Directory.GetFiles(Path, "*", SearchOption.TopDirectoryOnly).Where(x => x.EndsWith(".pkg", StringComparison.OrdinalIgnoreCase)).ToArray();
 
             List<FileEntry> Entries = new List<FileEntry>();
 

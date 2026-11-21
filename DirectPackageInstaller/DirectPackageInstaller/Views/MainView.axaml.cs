@@ -530,7 +530,7 @@ namespace DirectPackageInstaller.Views
                 else
                 {
                     var Picker = new FilePicker();
-                    await Picker.OpenDir(App.RootDir);
+                    await Picker.OpenDir(Directory.Exists("/storage/emulated/0/Download") ? "/storage/emulated/0/Download" : App.RootDir);
                     
                     await SingleView.CallView(Picker, false);
                     Result = Picker.SelectedFiles.ToArray();
